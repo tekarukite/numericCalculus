@@ -1,5 +1,6 @@
-function [ res, r ] = newton( ini, niter, tol)
-x = ini;    
+function [ res, r ] = newton( ini, niter, tol,f,df)
+%syntax: para llamar a una función @(x)(f1(x))
+x = ini;  
 res = x - f(x)/df(x);
 r = zeros(1,niter);
 r(1,1) = 800;
