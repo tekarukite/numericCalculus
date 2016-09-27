@@ -1,0 +1,1 @@
+function cosa = newtonRaphson( f ) 
