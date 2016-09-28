@@ -21,10 +21,9 @@ J = jacobian(residu(cosa),cosa);
 
 %2 hacemos trampa y calculamos el resultado con fsolve
 
-%resul = fsolve(@residu, [0;0;0]);
+resul = fsolve(@residu, [0;0;0]);
 
 %3 calcula el error cometido en cada iteracion y dibuja una gráfica de
 %convergencia
-puntoInicialNR = [0;0;0];
 
-[resulNR, errorNR] = newtonRaphson(puntoInicialNR,tolerancia,@(x)residu(x),@(x)Jf1(x));
+[resulNR, errorNR] = newtonRaphson(puntoInicial, )
