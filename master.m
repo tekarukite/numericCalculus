@@ -23,8 +23,17 @@ J = jacobian(residu(cosa),cosa);
 
 %resul = fsolve(@residu, [0;0;0]);
 
-%3 calcula el error cometido en cada iteracion y dibuja una gráfica de
-%convergencia
+%Calculamos la solución por newtonRaphson
 puntoInicialNR = [0;0;0];
 
 [resulNR, errorNR] = newtonRaphson(puntoInicialNR,tolerancia,@(x)residu(x),@(x)Jf1(x));
+
+%3 calcula el error cometido en cada iteracion y dibuja una gráfica de
+%convergencia
+
+ejex = [1:1:size(errorNR,2)];
+
+plot(ejex, log(errorNR));
+
+%4 Resolver usando Newton-Raphson modificado
+
