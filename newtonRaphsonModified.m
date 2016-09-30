@@ -2,13 +2,12 @@ function [resultado, error] = newtonRaphsonModified(xinicial,tol, f , Jf)
     x = xinicial;
     J = Jf(x);
     resultado = x - (J)\f(x);
-    error = zeros(1,100);
-    error(1,1) = 800;
+    error = 8;
     i = 1;
-    while(true)
+    while(i <= 99)
         resultado = x - (J)\f(x);
         if(norm(resultado) > 0)
-            error(1,i) = norm((x - resultado))/norm(resultado);
+            error =[error norm((x - resultado))/norm(resultado)];
         end
         %fprintf('error : %i \n',error(1,i))
         x = resultado;
