@@ -11,4 +11,13 @@ for n = [3,5,7,9]
   e = polyval(p,i);
   plot(i,e); 
 end
+legend('f','3','5','7','9')
 hold of
+
+%% PROBLEMA 2: APROXIAMA POR MINIMOS CUADRADOS 
+%% USANDO 101 PUNTOS CON GRADO M = 2,4,6,8
+
+
+
+
+
