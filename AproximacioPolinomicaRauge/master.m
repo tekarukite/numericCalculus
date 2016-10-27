@@ -3,7 +3,7 @@
 i = linspace(-1,1,100);
 y = ourfunction(i);
 
-figure
+figure(1)
 plot(i,y);
 hold on
 for n = [3,5,7,9]
@@ -12,12 +12,26 @@ for n = [3,5,7,9]
   plot(i,e); 
 end
 legend('f','3','5','7','9')
-hold of
+
 
 %% PROBLEMA 2: APROXIAMA POR MINIMOS CUADRADOS 
 %% USANDO 101 PUNTOS CON GRADO M = 2,4,6,8
+i = linspace(-1,1,100);
+y = ourfunction(i);
 
 
+figure(2)
+plot(i,y);
+hold on
+for m = [2,4,6,8]
+    im = linspace(-1,1,101);
+    y2 = ourfunction(im);
+    p = polyfit(im,y2,m);
+  e = polyval(p,i);
+  plot(i,e); 
+end
+legend('f','2','4','6','8')
+hold off
 
 
 
