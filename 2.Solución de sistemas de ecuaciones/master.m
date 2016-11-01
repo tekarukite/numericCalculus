@@ -24,6 +24,7 @@ J = jacobian(residu(cosa),cosa);
 %resul = fsolve(@residu, [0;0;0]);
 
 %Calculamos la solución por newtonRaphson
+fprintf('Newton Raphson \n')
 puntoInicialNR = [1;1;1];
 
 [resulNR, errorNR] = newtonRaphson(puntoInicialNR,tolerancia,@(x)residu(x),@(x)Jf1(x));
@@ -35,6 +36,8 @@ puntoInicialNR = [1;1;1];
 %plot(ejex, log(errorNR));
 
 %4 Resolver usando Newton-Raphson modificado
-
+fprintf('Modified Newton-Raphson \n')
 [resulNRM, errorNRM] = newtonRaphsonModified(puntoInicialNR,tolerancia,@(x)residu(x),@(x)Jf1(x));
 superplot(log(errorNR),log(errorNRM));
+xlabel = ('iteracion');
+ylabel = ('log(error)');
