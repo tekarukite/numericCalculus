@@ -1,5 +1,8 @@
 function [ res, r ] = newton( ini, niter, tol,f,df)
 %syntax: para llamar a una función @(x)(f1(x))
+%Entrada: la función f, el numero de iteraciones niter,
+% la tolerancia f y la derivada analitica de f df
+%Salida: el residuo r y el resultado res
 x = ini;  
 res = x - f(x)/df(x);
 r = zeros(1,niter);

@@ -14,7 +14,7 @@ i = 1;
        r =[r abs((x - res))/abs(res)];
        if(r(1,i) <= tol)
             fprintf('Hemos encontrado la solucion en %i iteraciones \n',i)
-            %break
+            break
        end
         x = res;
         i = i + 1;
