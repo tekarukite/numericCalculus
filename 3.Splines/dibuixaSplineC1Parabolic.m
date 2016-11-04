@@ -5,6 +5,7 @@ function [xS3,yS3,coeficients]=dibuixaSplineC1Parabolic(x,y)
 % Llegeix els punts base (x) i les imatges (y)
 % Retorna els punts i les imatges, dividint els intervals en 20 parts
 % Retorna els coeficients en una matriu nx3
+
     
     %Variables auxiliars
     x01 = [0:1/20:1];
