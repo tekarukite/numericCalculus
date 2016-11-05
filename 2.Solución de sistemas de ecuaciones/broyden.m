@@ -16,7 +16,7 @@ S = Jf1;
 deltaX = -S\F(X); % Contrabarra per a resoldre el sistema
 newX = X + deltaX;
 R = [ ];
-
+X = newX;
 R =[R norm((X - newX))/norm(newX)];
 i = 1;
 

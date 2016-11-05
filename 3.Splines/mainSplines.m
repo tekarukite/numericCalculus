@@ -33,7 +33,9 @@ figure(1)
 plot(xS1,yS1,'r-',x,y,'ko','LineWidth',2)
 legend('C1 cubic')
 
-% %Spline natural (C2 Cubico)
+%% Spline natural (C2 Cubico)
+% Derivadas continuas, curvaturas continuas y el valor de la primera y
+% última derivada es 0.
 % No local con amortiguamiento rapido
  d2S = calculaCurvaturesSplineNatural(x,y);
  [xS2,yS2,coeficients]=dibuixaSplineCubic(x,y,[],d2S);
@@ -41,8 +43,9 @@ legend('C1 cubic')
  figure(1)
  plot(xS1,yS1,'r-',xS2,yS2,'b-',x,y,'ko','LineWidth',2)
  legend('C1 cubic','Natural')
-% 
-% %Spline parabolic C1 (recurrent)
+
+ 
+%% Spline parabolic C1 (recurrent)
 % Peta por que no es local
  [xS3,yS3,coeficients]=dibuixaSplineC1Parabolic(x,y);
  coeficients

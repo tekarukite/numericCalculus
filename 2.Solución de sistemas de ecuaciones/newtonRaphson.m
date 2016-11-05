@@ -4,7 +4,7 @@ function [resultado, error] = newtonRaphson(xinicial,tol, f , Jf)
 
     x = xinicial;
     resultado = x - (Jf(x))\f(x);
-    error = 8;
+    error = norm((x - resultado))/norm(resultado);
     i = 1;
     while i <= 800
         resultado = x - (Jf(x))\f(x);

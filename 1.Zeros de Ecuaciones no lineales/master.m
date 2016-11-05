@@ -3,6 +3,7 @@ close all;
 
 %syms x;
 %df = diff(f1(x),x)
+%simplify(df)
 
 
 figure(1)

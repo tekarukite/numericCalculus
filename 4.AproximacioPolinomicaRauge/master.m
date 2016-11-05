@@ -42,6 +42,29 @@ for m = [2,4,6,8]
 end
 legend('f','2','4','6','8')
 
+%% Lagrange
+% ESTE NO LO HEMOS PROGRAMADO, LO APUNTO POR QUE SE QUE ME VOY A LIAR CON
+% LOS NOMBRES
+% p(x) = sum_i=1:n c_i*L_i(x)
+%
+%   [L_0(x_0), ... , L_n(x_0)][c_0]   [f(x_0)]
+%L =[L_0(x_i), ... , L_n(x_i)][c_i] = [f(x_i)]
+%   [L_0(x_n), ... , L_n(x_n)][c_n]   [f(x_n)]
+%
+% L es la matriz identidad.
+% Cada L_j = prod_i=0:n(i!=j)(x-x_i)/
+%            prod_i=0:n(i!=j)(x_j-x_i)
+%
+%El residuo de lagrange: 
+%
+%R_n(x) = L(x)*f^{n+1)}(mu(x))/(n+1)
+%
+%mu(x)\in [x,x_0,...,x-n]
+%L(x) = prod_i=0:n(x-x_i)
+
+
+
+%% Legendre
 figure(3)
 
 
