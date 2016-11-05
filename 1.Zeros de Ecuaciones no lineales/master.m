@@ -5,7 +5,8 @@ fprintf('bisection');
 f = @(x)f1(x);
 x = -1;
 y =  0;
-solu = bisection(f, x, y, 800,0.0001);
+[solBisection, resBisection] = bisection(f, x, y, 800,0.0001);
+plot(log(resBisection));
 
 % newton
 fprintf('Newton');
