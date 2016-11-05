@@ -1,6 +1,10 @@
 clear all;
 close all;
 
+%syms x;
+%df = diff(f1(x),x)
+
+
 figure(1)
 f = @(x)f1(x);
 i = linspace(-2,5,200);

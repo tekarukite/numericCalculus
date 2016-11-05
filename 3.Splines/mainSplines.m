@@ -35,9 +35,9 @@ legend('C1 cubic')
 
 % %Spline natural (C2 Cubico)
 % No local con amortiguamiento rapido
- d2S = calculaCurvaturesSplineNatural(x,y)
+ d2S = calculaCurvaturesSplineNatural(x,y);
  [xS2,yS2,coeficients]=dibuixaSplineCubic(x,y,[],d2S);
- coeficients
+ coeficients;
  figure(1)
  plot(xS1,yS1,'r-',xS2,yS2,'b-',x,y,'ko','LineWidth',2)
  legend('C1 cubic','Natural')
