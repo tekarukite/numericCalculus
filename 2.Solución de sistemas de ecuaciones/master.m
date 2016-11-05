@@ -35,8 +35,8 @@ fprintf('Modified Newton-Raphson \n')
 [resulNRM, errorNRM] = newtonRaphsonModified(puntoInicialNR,tolerancia,@(x)residu(x),@(x)Jf1(x));
 %superplot(log(errorNR),log(errorNRM));
 plot(log(errorNRM));
-xlabel = ('iteracion');
-ylabel = ('log(error)');
+% xlabel = ('iteracion');
+% ylabel = ('log(error)');
 
 
 %% Broyden
@@ -53,6 +53,12 @@ Aprox = Jf1(puntoInicialNR);
 plot (log(errorBroyden), 'displayname', 'Broyden');
 
 legend('NR', 'NRM', 'Bro')
+
+
+%% Casi-Newton en optimización
+% si J es la jacobiana y H la hassiana
+% x_{k+1} = x_k - H^{-1}(x_k)J(x_k)
+
 
 
 

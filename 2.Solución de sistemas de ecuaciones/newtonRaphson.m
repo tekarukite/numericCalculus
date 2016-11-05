@@ -1,9 +1,12 @@
 function [resultado, error] = newtonRaphson(xinicial,tol, f , Jf) 
+%% Newton para sistemas de ecuaciones
+% x_k+1 = x_k -J(x_k)^(-1)f(x_k)
+
     x = xinicial;
     resultado = x - (Jf(x))\f(x);
     error = 8;
     i = 1;
-    while(true)
+    while i <= 800
         resultado = x - (Jf(x))\f(x);
         if(norm(resultado) > 0)
             error = [error norm((x - resultado))/norm(resultado)];
