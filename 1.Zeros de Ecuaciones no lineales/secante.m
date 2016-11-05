@@ -3,6 +3,11 @@ function [ sol, res ] = secante( f, initialPoint1, initialPoint2, numberIteratio
 %Entrada: la función f, el numero de iteraciones niter,
 % la tolerancia f 
 %Salida: el residuo res y el resultado sol
+
+%% Que hace secante:
+% Aproximamos df(x_k) = (f(x_k)-f(x_k+1))/(x_k-x_k+1)
+% x_k+1 = x_k - f(x_k)/df(x_k)
+
 x = initialPoint1;
 df = (f(initialPoint2)-f(initialPoint1))/(initialPoint2-initialPoint1);
 sol = x - f(x)/df;

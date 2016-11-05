@@ -3,6 +3,7 @@ function [ result, residue  ] = whittakerRaquel( initialPoint, numberIterations,
 %point and whith a tolerance of tol using the aproximation of the
 %derivative m
 
+%% Que hace whittaker
 % Es newton aproximando la derivada por una constante m
 % x_{k+1} = x_k - f(x_k)/m
 

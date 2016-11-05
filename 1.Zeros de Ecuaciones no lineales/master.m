@@ -1,8 +1,14 @@
 clear all;
 close all;
-%% bisection
-fprintf('bisection');
+
+figure(1)
 f = @(x)f1(x);
+i = linspace(-2,5,200);
+plot(i,f(i))
+grid on
+figure(2)
+%% bisection
+fprintf('Bisection \n');
 x = -1;
 y =  0;
 [solBisection, resBisection] = bisection(f, x, y, 800,0.0001);
@@ -12,7 +18,7 @@ plot(log(resBisection));
 hold on
 
 %% newton
-fprintf('Newton');
+fprintf('Newton \n');
 ini = -1;
 df = @(x)df1(x);
 [ solNewton, resNewton ] = newton( ini, 800, 0.0001,f,df);
@@ -32,9 +38,9 @@ plot(log(residue));
 
 %% Secante
 
-fprintf('Secante');
+fprintf('Secante \n');
 ini1 = -1;
-ini2 = 2;
+ini2 = 0.5;
 
 [ solSecante, resSecante ] = secante( f, ini1, ini2, 800, 0.0001);
 %Secante tiene convergencia super cuadrática (exponente entre 1 y 20)
@@ -44,3 +50,10 @@ plot(log(resSecante));
 
 
 legend('bis','newt','wit','sec');
+
+%% Convergencias: 
+% Convergencia de orden p: |E_{k+1}| <= lambda|E_k|^p
+% p = 1 ------------------------> Lineal (Biseccion)
+% p in (1,2) o landa_k -> 0 ----> Superineal (Secante)
+% p = 2 ------------------------> Cuadrática (Newton)
+
