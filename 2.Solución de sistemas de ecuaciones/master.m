@@ -1,14 +1,7 @@
-clear all 
-% Calculamos Newton con tolerancia
-puntoInicial = 3;
-numeroIteraciones = 10;
-tolerancia = 0.000001;
-f = @(x)f1(x);
-df = @(x)df1(x);
-%[resultado, residuo] = newton(puntoInicial,numeroIteraciones, tolerancia, f, df);
+clear all;
+close all;
 
-
-%%%%%%%%Pr�ctica Newton-Raphson
+%% Pr�ctica Newton-Raphson
 
 %Creamoss la funcion que evalua f( residu de f )
 
@@ -25,6 +18,8 @@ J = jacobian(residu(cosa),cosa);
 
 %Calculamos la solución por newtonRaphson
 fprintf('Newton Raphson \n')
+
+tolerancia = 0.001;
 puntoInicialNR = [1;1;1];
 
 [resulNR, errorNR] = newtonRaphson(puntoInicialNR,tolerancia,@(x)residu(x),@(x)Jf1(x));
@@ -33,11 +28,13 @@ puntoInicialNR = [1;1;1];
 %convergencia
 %ejex = [1:1:size(errorNR,2)];
 
-%plot(ejex, log(errorNR));
-
+plot(log(errorNR));
+hold on;
 %4 Resolver usando Newton-Raphson modificado
 fprintf('Modified Newton-Raphson \n')
 [resulNRM, errorNRM] = newtonRaphsonModified(puntoInicialNR,tolerancia,@(x)residu(x),@(x)Jf1(x));
-superplot(log(errorNR),log(errorNRM));
+%superplot(log(errorNR),log(errorNRM));
+plot(log(errorNRM));
 xlabel = ('iteracion');
 ylabel = ('log(error)');
+legend('NR', 'NRM')
