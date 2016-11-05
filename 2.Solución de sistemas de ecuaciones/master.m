@@ -14,7 +14,7 @@ J = jacobian(residu(cosa),cosa);
 
 %2 hacemos trampa y calculamos el resultado con fsolve
 
-%resul = fsolve(@residu, [0;0;0]);
+resul = fsolve(@residu, [0;0;0]);
 
 %Calculamos la solución por newtonRaphson
 fprintf('Newton Raphson \n')
@@ -37,4 +37,22 @@ fprintf('Modified Newton-Raphson \n')
 plot(log(errorNRM));
 xlabel = ('iteracion');
 ylabel = ('log(error)');
-legend('NR', 'NRM')
+
+
+%% Broyden
+% Output info
+fprintf('Mètode de Broyden\n');
+F = @(x)residu(x);
+ini = [1;1;1];
+Aprox = Jf1(puntoInicialNR);
+[resulBroyden,errorBroyden] = broyden (F,Aprox, ini, tolerancia, 800);
+
+
+% Graphing of the error
+
+plot (log(errorBroyden), 'displayname', 'Broyden');
+
+legend('NR', 'NRM', 'Bro')
+
+
+
