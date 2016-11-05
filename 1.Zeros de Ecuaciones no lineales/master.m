@@ -27,14 +27,14 @@ plot(log(resNewton));
 
 %% whittaker
 
-fprintf('Whittaker');
+fprintf('Whittaker \n');
 initialPoint = -1;
 numberIterations = 800;
 tol = 0.0001;
 m = df(initialPoint);
 [ result, residue] = whittakerRaquel( initialPoint, numberIterations, tol, f, m);
 %tiene convergencia lineal
-plot(log(residue));
+plot(log(residue),'-s');
 
 %% Secante
 
@@ -46,7 +46,7 @@ ini2 = 0.5;
 %Secante tiene convergencia super cuadrática (exponente entre 1 y 20)
 % un poco mejor que lineal, sin calcular derivadas
 
-plot(log(resSecante));
+plot(log(resSecante),'-*');
 
 
 legend('bis','newt','wit','sec');
