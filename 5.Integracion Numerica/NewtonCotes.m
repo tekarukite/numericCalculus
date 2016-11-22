@@ -17,7 +17,5 @@ end
 
 w = X\h;
 
-fprintf('Los pesos son: ')
-display(w')
 end
 

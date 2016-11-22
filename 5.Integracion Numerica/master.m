@@ -1,5 +1,7 @@
 clear all;
+close all;
 
+%% FUNCION 1
 a = 0;
 b = 5;
 
@@ -25,10 +27,29 @@ end
 figure(1)
 subplot(1,2,2)
 plot(log(abs(valorIntegralNC - valorExactoIntegral)),'.-')
+hold on
+
+%% Cuadratura de Newton-Cotes abierta: 
+
+valorIntegralNC2 = [];
+for i = 2:14
+    n = i;
+    x = linspace(a,b,i);
+    x = x(2:i-1);
+    y = f1(x);
+    w = NewtonCotes(x,a,b);
+    valorIntegralNC2 = [valorIntegralNC2 y*w];
+end
+
+figure(1)
+subplot(1,2,2)
+plot(log(abs(valorIntegralNC2 - valorExactoIntegral)))
+hold on
 
 
 
-%% Cuadratura de Gauss-Lagendre
+
+%% Cuadratura de Gauss-Lagendre: 
 
 valorIntegralGauss = [];
 for i = 0:14
@@ -41,5 +62,17 @@ figure(1)
 subplot(1,2,2)
 plot(log(abs(valorIntegralGauss - valorExactoIntegral)),'*-')
 hold on
-legend('NC','Gauss')
+legend('NC','NC abierto','Gauss')
+
+%% FUNCION 2
+a = -4; 
+b = 4;
+
+eje = linspace(0,6,100);
+figure(1)
+subplot(1,2,1)
+plot(eje,f2(eje))
+hold on
+
+
 
