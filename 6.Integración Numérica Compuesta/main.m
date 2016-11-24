@@ -58,14 +58,16 @@ legend('Composta de simpson')
 
 fprintf('\nPendent 3 darrers punts:\n Composta Simpson: %0.1f \n',ajustSimp(1))
 
-% Cuadratura de Simpson
+% Cuadratura de Gauss 2
 errorGauss2=[];
+
+df = @(z,a,b)newf2(z,a,b);
 for k=1:5
     m = 2*2^k; %numero d'intervals
-    errorGauss2 = [errorGauss2, abs(compostaGauss(f,a,b,m)-I_ex)];
+    errorGauss2 = [errorGauss2, abs(compostaGauss(df,a,b,m)-I_ex)];
 end
-nPuntsSimp = 2*2.^[1:5]+1;
-ajustSimp = (polyfit(log10(nPuntsGauss2(end-2:end)),log10(errorGauss2(end-2:end)),1));
+nPuntsGauss2 = 2*2.^[1:5]+1;
+ajustGauss2 = (polyfit(log10(nPuntsGauss2(end-2:end)),log10(errorGauss2(end-2:end)),1));
 
 %Grafica errors
 figure(3) 
