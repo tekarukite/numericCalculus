@@ -37,15 +37,18 @@ npassos=ceil((b-a)/h);
 [x,Y]=Euler(f,[a,b],y0,npassos);
 figure(2), plot(x,Y,'-*'), title('Euler')
 
-% Solucio analítica
+% Solucio analï¿½tica
 fa = @(x) (10*x+1).^(-0.1);
 
 npassos = 10*2.^[0:4];
-error = npassos;
-for i = 1: size(npassos,1)
-    [x,Y3]=Euler(f,[a,b],y0,npassos(i));
-    % Esto está mal, cuando no esté dormida lo tengo que corregir. 
-    
-    error(i) = log(abs(Y3(end)-fa(x(end))));
+figure(3)
+
+% ni puta idea de por que no tira, preguntarle a didac
+
+for i = 1: size(npassos,2)
+    [x,Y3]=Euler(f,[a,b],y0,npassos(i)); 
+    error = (abs(Y3'-fa(2)));
+    figure(3)
+    plot(x,log(error),'o-');
+    hold on
 end
-figure(3), plot(log(npassos),error,'o-');
