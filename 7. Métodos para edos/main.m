@@ -64,4 +64,5 @@ h = 0.1;
 npassos=ceil((b-a)/h); 
 
 [x4,Y4] = Euler(f,[a,b],y0,npassos); 
+figure(5), plot(x4,Y4,'-*'),title('Euler')
 
