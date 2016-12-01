@@ -43,12 +43,25 @@ fa = @(x) (10*x+1).^(-0.1);
 npassos = 10*2.^[0:4];
 figure(3)
 
-% ni puta idea de por que no tira, preguntarle a didac
-
+error = []; 
 for i = 1: size(npassos,2)
     [x,Y3]=Euler(f,[a,b],y0,npassos(i)); 
-    error = (abs(Y3'-fa(2)));
-    figure(3)
-    plot(x,log(error),'o-');
-    hold on
+    error = [error (abs(Y3(end)-fa(1)))]
 end
+plot(log(npassos),log(error),'o-');
+
+%% Sistemas de edos
+
+f = @(x,y) [0 1; -1 0]*y; a = 0; b = 2*pi; y0 = [1;0];
+
+
+% solución con matlab
+[x,Y]= ode45(f,[a,b],y0);
+figure(4), plot(x,Y,'-*'),title('ode45')
+
+% solución con euler
+h = 0.1;
+npassos=ceil((b-a)/h); 
+
+[x4,Y4] = Euler(f,[a,b],y0,npassos); 
+
