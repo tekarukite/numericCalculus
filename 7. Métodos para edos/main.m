@@ -66,3 +66,11 @@ npassos=ceil((b-a)/h);
 [x4,Y4] = Euler(f,[a,b],y0,npassos); 
 figure(5), plot(x4,Y4,'-*'),title('Euler')
 
+% 5) Amb h=0.01 resoldre el problema per T=10*pi,50*pi. ?s el m?tode
+%    (absolutament) estable? 
+
+h = 0.01;
+T = 10*pi;
+[x5,Y5] = Euler(f,[a,T],y0,npassos); 
+figure(6), plot(x5,Y5,'-*'),title('Euler')
+
