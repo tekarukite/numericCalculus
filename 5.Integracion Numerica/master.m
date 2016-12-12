@@ -49,7 +49,7 @@ hold on
 
 
 
-%% Cuadratura de Gauss-Lagendre: 
+%% Cuadratura de Gauss-Legendre: 
 
 valorIntegralGauss = [];
 for i = 0:14
